@@ -1,14 +1,8 @@
-// console.log('aaaaaaaaaaaaa');
 // 引入react核心库
 import React from "react";
-// 引入ReactDOM
+// 引入react-dom
 import ReactDOM from "react-dom";
 // 引入App组件
-import App from './App'
-// 渲染App到页面
-ReactDOM.render(<App/>,document.getElementById('root'))
+import App from './components/App'
 
-// import React  from "./module";
-// console.log(React);
-// const {Component} = React
-// console.log(new Component());
+ReactDOM.render(<App/>,document.getElementById('root'))
