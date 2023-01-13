@@ -50,7 +50,7 @@ export default class Item extends Component {
       // 注意：style作为关键字使用
       <li style={{ backgroundColor: isEnter ? 'crimson' : '' }} onMouseEnter={this.handleMouse(true)} onMouseLeave={this.handleMouse(false)}>
         <label>
-          <input type="checkbox" defaultChecked={isComplete} onChange={this.handleCheck(id)} />
+          <input type="checkbox" checked={isComplete} onChange={this.handleCheck(id)} />
           <span>{name}</span>
           {/* 不用高阶函数传递自定义参数的写法
               () => { this.handleDelete(id) }

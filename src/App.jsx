@@ -67,14 +67,50 @@ export default class App extends Component {
     // 重新设置状态
     this.setState({ todos: newTodos })
   }
+  // 全选
+  checkAllTodo=(isCheckAll)=>{
+    console.log(isCheckAll);
+    const {todos} = this.state
+    if (isCheckAll){
+      const newTodos = todos.map((todoObj) => {
+          return { ...todoObj, isComplete: isCheckAll }  //注意：需返回
+      })
+      console.log('xxxxxxxxxxx',newTodos);
+      this.setState({ todos: newTodos })
+    }
+
+  }
+   // 清除已完成todo
+   handleClear=()=>{
+    const {todos} = this.state
+    const newTodos = todos.filter((todoObj)=>{
+      // if (!todoObj.isComplete)
+      //   return todoObj
+      return !todoObj.isComplete
+    })
+    this.setState({ todos: newTodos })
+  }
+
   render() {
     const { todos } = this.state
+    // 计算已完成的todo数量,即有多少个已经打勾的对象
+    // 累加
+    /* 
+        Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
+    */
+    // const completeCount =  todos.filter((todoObj)=>{
+    //   return todoObj.isComplete == true
+    // }).reduce((preVal,currentVal)=>{
+    //   return preVal += currentVal
+    // })
+    // console.log('zzzzzzzz',completeCount);
+    
     return (
       <div className='todo-container'>
         <div className='todo-wrap'>
           <Header addTodo={this.addTodo} />
           <List todos={todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
-          <Footer />
+          <Footer todos={todos} checkAllTodo={this.checkAllTodo} handleClear={this.handleClear} />
         </div>
       </div>
     )
