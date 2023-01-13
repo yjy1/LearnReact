@@ -20,19 +20,9 @@ export default class Item extends Component {
       const { updateTodo } = this.props
       console.log('target.checked', target.checked);
       updateTodo(id, target.checked)
-      // 注意：打印日志时的语句算一个参数
-      // updateTodo('我是打印语句。。。', id, target.checked)
     }
   }
-  // 删除数据
-  // handleDelete=(id)=>{
-  //   return ()=>{
-  //     console.log('handleDelete');
-  //     const { deleteTodo } = this.props
-  //     // 传递要删除的id
-  //     deleteTodo(id)
-  //   }
-  // }
+  
   // 删除数据
   handleDelete = (id) => {
     if(!window.confirm('确定删除吗？')){
@@ -52,9 +42,6 @@ export default class Item extends Component {
         <label>
           <input type="checkbox" checked={isComplete} onChange={this.handleCheck(id)} />
           <span>{name}</span>
-          {/* 不用高阶函数传递自定义参数的写法
-              () => { this.handleDelete(id) }
-          */}
           <button onClick={() => { this.handleDelete(id) }} className='btn btn-danger' style={{ display: isEnter ? 'block' : 'none' }}>删除</button>
         </label>
       </li>

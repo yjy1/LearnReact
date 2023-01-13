@@ -11,7 +11,6 @@ export default class Footer extends Component {
   }
   render() {
     const {todos} = this.props
-    // 注意：preVal是上一次的值，currentObj是遍历出来的对象，,0是初始值
     const completeCount = todos.reduce((preVal, currentObj) => {
       return (preVal += currentObj.isComplete == true ? 1 : 0)
     },0)
@@ -19,7 +18,6 @@ export default class Footer extends Component {
     return (
       <div className='todo-footer'>
         <label>
-          {/* 注意：defaultChecked只会执行一次 */}
           <input type="checkbox" onChange={this.handleCheck} 
             checked={(todos.length === completeCount && todos.length > 0) ? true : false} />
         </label>
