@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {nanoid} from 'nanoid'
 import  './index.css'
 
+
 // console.log(nanoid()); //注意：全球唯一标识
 export default class Header extends Component {
+  // 对传递进来的方法进行限制
+  static propTypes ={
+    addTodo:PropTypes.func.isRequired
+  }
+  // 键盘事件的回调
   handleEnter = (event)=>{
     const {code,target} = event
     const {addTodo } = this.props

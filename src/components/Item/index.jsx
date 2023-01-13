@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './index.css'
 export default class Item extends Component {
+  static propTypes ={
+    updateTodo:PropTypes.func.isRequired,
+  }
   state = { isEnter: false }
-
+  // 鼠标事件的回调
   handleMouse = (isEnter) => {
     return () => {
       this.setState({ isEnter })
     }
   }
+  // 复选框事件的回调
   handleCheck = (id) => {
     return (event) => {
       const { target } = event
