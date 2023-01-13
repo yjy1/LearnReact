@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 import './index.css'
 export default class Item extends Component {
+  state = { isEnter: false }
+  handleMouse = (isEnter) => {
+    return ()=>{
+       this.setState({isEnter})
+    }
+  }
   render() {
-    // const {obj} =this.props
     const {name,isComplete} =this.props 
-    // console.log('bbbbbbbb',this );
+    const {isEnter} = this.state
     return (
-      <li>
+      // 注意：style作为关键字使用
+      <li style={{ backgroundColor: isEnter ? 'crimson' : '' }} onMouseEnter={this.handleMouse(true)} onMouseLeave={this.handleMouse(false)}>
         <label>
-          {/* 注意使用checked需要写上onChange,否则为只读；使用defaultChecked则无以上两个问题 */}
           <input type="checkbox" defaultChecked={isComplete} />
-          {/* <span>{obj.name}</span> */}
           <span>{name}</span>
-          <button className='btn btn-danger' style={{ display: 'none' }}>删除</button>
+          <button className='btn btn-danger' style={{ display: isEnter?'block':'none'  }}>删除</button>
         </label>
       </li>
     )

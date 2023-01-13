@@ -8,9 +8,7 @@ export default class List extends Component {
       <ul className='todo-main'>
         {
           todos.map((obj)=>{
-            // console.log('aaaaaaaaa',obj);
             return  <Item  {...obj} key={obj.id}/>
-            // return  <Item obj={obj} key={obj.id}/>
           })
         }
       </ul>
