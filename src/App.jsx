@@ -13,13 +13,22 @@ export default class App extends Component {
       { id: '004', name: '逛街', isComplete: true },
     ]
   }
-
+  // 负责接收一个对象
+  addTodo = (todoObj)=>{ //注意：回调函数，可以接收调用方的数据
+    const {todos} = this.state
+    this.setState({ 
+      todos: [
+        todoObj,
+        ...todos
+      ] 
+    })
+  }
   render() {
     const {todos} = this.state
     return (
       <div className='todo-container'>
         <div className='todo-wrap'>
-          <Header  />
+          <Header addTodo={this.addTodo} />
           <List todos={todos} />
           <Footer />
         </div>
