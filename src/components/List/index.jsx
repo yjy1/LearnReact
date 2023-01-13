@@ -8,13 +8,13 @@ export default class List extends Component {
     todos:PropTypes.array.isRequired
   }
   render() {
-    const {todos,updateTodo} = this.props
+    const {todos,updateTodo,deleteTodo} = this.props
     return (
       <ul className='todo-main'>
         {
           todos.map((obj)=>{
             // {...obj} 结构并传递给子组件
-            return  <Item updateTodo={updateTodo} {...obj} key={obj.id}/>
+            return  <Item updateTodo={updateTodo} deleteTodo={deleteTodo} {...obj} key={obj.id}/>
           })
         }
       </ul>
