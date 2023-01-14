@@ -4,16 +4,18 @@ import React, { Component } from 'react'
 export default class Search extends Component {
     handleSearch = () => {
         // 获取用户的输入（连续解构赋值+重命名）
-        const { keyWordElement:{value:keyWord} ,props:{saveUsers}} = this
-        console.log(keyWord);
-  
+        const { keyWordElement: { value: keyWord }, props: { updateAppState } } = this
+
+        updateAppState({ isFirst: false, isLoading: true })
+
         // 发送网络请求
-        axios.get(`https://api.github.com/search/users?q=${keyWord}`).then(
+        // axios.get(`https://api.github.com/search/users?q=${keyWord}`).then(
+        axios.get(`https://api.githubzzzzzz.com/search/users?q=${keyWord}`).then(
             response => {
-                 saveUsers(response.data.items)
+                updateAppState({ users:response.data.items, isLoading: false })
             },
             reject => {
-                console.log(reject);
+                updateAppState({ error:reject.message, isLoading: false })
             }
         )
     }
