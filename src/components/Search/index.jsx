@@ -1,21 +1,24 @@
 import axios from 'axios';
 import React, { Component } from 'react'
+import pubsub from 'pubsub-js';
 
 export default class Search extends Component {
     handleSearch = () => {
-        // 获取用户的输入（连续解构赋值+重命名）
-        const { keyWordElement: { value: keyWord }, props: { updateAppState } } = this
+        console.log('handleSearch==========');
+        const { keyWordElement: { value: keyWord } } = this
 
-        updateAppState({ isFirst: false, isLoading: true })
-
+        pubsub.publish('changeIsLoading', { isLoading: true })
         // 发送网络请求
-        // axios.get(`https://api.github.com/search/users?q=${keyWord}`).then(
-        axios.get(`https://api.githubzzzzzz.com/search/users?q=${keyWord}`).then(
+        axios.get(`https://api.github.com/search/users?q=${keyWord}`).then(
             response => {
-                updateAppState({ users:response.data.items, isLoading: false })
+                // 发布消息
+                pubsub.publish('saveUsers', { users: response.data.items, isFirst: false, isLoading: false })
+                // pubsub.publish('saveUsers', () => {
+                //     return { users: response.data.items,isFirst:false, isLoading: false }
+                // })
             },
             reject => {
-                updateAppState({ error:reject.message, isLoading: false })
+                pubsub.publish('saveUsers', { error: reject.message, isFirst: false, isLoading: false })
             }
         )
     }
