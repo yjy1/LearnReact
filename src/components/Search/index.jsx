@@ -37,7 +37,7 @@ export default class Search extends Component {
         
         // 发送网络请求 --使用fetch发送 优化
         try {
-            const response = await fetch(`https://api.github.com/search/users?q=${keyWord}`)
+            const response = await fetch(`https://localhost:3000/api1/search/users?q=${keyWord}`)
             const result = await response.json()
             console.log('rrrrrr', result);
             pubsub.publish('saveUsers', { users: result.items, isFirst: false, isLoading: false })
