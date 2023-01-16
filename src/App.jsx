@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button ,DatePicker} from 'antd';
-import 'antd/dist/antd.css'
+ 
 import { WechatOutlined, WeiboCircleOutlined,SearchOutlined, } from '@ant-design/icons'
 const { RangePicker } = DatePicker;
 export default class App extends Component {
