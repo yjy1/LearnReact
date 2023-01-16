@@ -2,11 +2,8 @@
 
 # dependencies
 /node_modules
-/node服务器/node_modules
 /.pnp
 .pnp.js
-
- 
 
 # testing
 /coverage
