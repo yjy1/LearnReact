@@ -49,3 +49,8 @@
                         params:[
                         path:"/about"
                         url:"/about"
+
+## 五、NavLink与封装NavLink
+    1.NavLink可以实现路由链接的高亮，通过activeclassName指定样式名
+    2.标签体内容是一个特殊的标签属性
+    3.通过this.props.children可以获取标签体内容
