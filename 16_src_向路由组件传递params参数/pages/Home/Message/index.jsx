@@ -21,20 +21,15 @@ export default class Message extends Component {
                             const { id, title } = messageObj
                             return <li key={id}>
                                 {/* 向路由组件传递params参数 */}
-                                {/* <MyNavLink to={`/home/message/message001/${id}/${title}`}>{title}</MyNavLink> */}
-
-                                 {/* 向路由组件传递search参数 */}
-                                 <MyNavLink to={`/home/message/message001/?id=${id}&title=${title}`}>{title}</MyNavLink>
+                                <MyNavLink to={`/home/message/message001/${id}/${title}`}>{title}</MyNavLink>
                             </li>
                         })
                     }
                 </ul>
                 <Switch>
                     {/* 声明接收params参数 */}
-                    {/* <Route path='/home/message/message001/:id/:title' component={Detail} /> */}
+                    <Route path='/home/message/message001/:id/:title' component={Detail} />
                    
-                   {/* search参数无需声明接收 */}
-                   <Route path='/home/message/message001' component={Detail} />
                 </Switch>
 
             </div>
