@@ -4,12 +4,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 // 引入App组件
 import App from './App'
-// import { HashRouter } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+// import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-    <BrowserRouter >
+    <HashRouter >
         <App />
-    </BrowserRouter>
+    </HashRouter>
     , document.getElementById('root')
 )

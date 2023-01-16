@@ -22,8 +22,9 @@ export default class App extends Component {
           <div className="col-xs-6">
             <Switch>
               <Route path={'/about'} component={About} />
-              <Route path={'/home'}   component={Home}  />
-              <Redirect  to={'/about'} />  
+              <Route path={'/home'} component={Home}  />
+              <Redirect  to={'/about'} /> {/* 重定向，设置默认路由 */}
+              {/* <Redirect path='/' to={'/about'} /> 重定向，设置默认路由 */}
             </Switch>
           </div>
         </div>
