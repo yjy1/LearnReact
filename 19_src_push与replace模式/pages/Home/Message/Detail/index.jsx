@@ -8,18 +8,11 @@ const detailDatas = [
 
 export default class Detail extends Component {
   render() {
-   
-    // 按收params参数
-    // const {id,title} = this.props.match.params || {}
-
-    // 接收search参数
-    // const {search} = this.props.location 
-    // const {id,title} = qs.parse(search.slice(1))
-
-    // 接收state参数
-    const {id,title} = this.props.location.state || {}
+    const {state} = this.props.location 
+    const {id,title} = state  || {}
+    console.log('iddddd',id);
     
-     
+    // 接收search参数
     const newDetailData =  detailDatas.find((detailDataObj)=>{
       return detailDataObj.id === id
     }) || {}
