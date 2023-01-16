@@ -3,7 +3,7 @@ import { NavLink, Route, Router } from 'react-router-dom'
 import Home from './pages/Home' //路由组件
 import About from './pages/About' //路由组件
 import Header from './components/Header' //一般组件
- 
+import MyNavLink from './components/MyNavLink'
 export default class App extends Component {
   render() {
     return (
@@ -20,18 +20,16 @@ export default class App extends Component {
 
               {/* 在react中靠路由链接实现切换组件 */}
           
-                <NavLink activeClassName='demo' className="list-group-item" to={'/about'}> About</NavLink>
-                <NavLink activeClassName='demo' className="list-group-item " to={'/home'}> Home </NavLink>
-            
-
+                {/* <NavLink activeClassName='demo' className="list-group-item" to={'/about'}> About</NavLink>
+                <NavLink activeClassName='demo' className="list-group-item " to={'/home'}> Home </NavLink> */}
+                <MyNavLink  to='/about' a={1} b={2} >About</MyNavLink>
+                <MyNavLink  to='/home' >Home</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
             {/* 注册路由 */}
-          
               <Route path={'/about'} component={About}/>  
               <Route path={'/home'} component={Home}/>  
-          
           </div>
         </div>
       </div>
