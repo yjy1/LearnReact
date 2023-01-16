@@ -104,4 +104,10 @@
         备注: 刷新也可以保留住参数
 
 
-        
+## 十二、编程式路由导航
+    借助this.prosp.history对象上的API对操作路由跳转、前进、后退
+        -this.prosp.history.push()
+        -this.prosp.history.replace()
+        -this.prosp.history.goBack()
+        -this.prosp.history.goForward()
+        -this.prosp.history.go()
