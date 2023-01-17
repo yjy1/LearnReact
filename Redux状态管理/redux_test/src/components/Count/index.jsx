@@ -1,36 +1,33 @@
 import React, { Component } from 'react'
 import store from '../../redux/store'
+// 引入actionCreator,专门用于创建action对象
+import { createIncrementAction,createDecrementAction,createIncrement4OddAction,createIncrementAsyncAction } from '../../redux/count_action'
 
 const currtCount = store.getState()
 export default class Count extends Component {
     state = { carName:'奔驰c63' }
     increment = () => {
         const { value } = this.selectRef
-        store.dispatch({ type: 'increment', data: value })
+        // store.dispatch({ type: 'increment', data: value })
+        store.dispatch(createIncrementAction(value))
     }
     decrement = () => {
         const { value } = this.selectRef
-        store.dispatch({ type: 'decrement', data: value })
+        store.dispatch(createDecrementAction(value))
     }
     increment4Odd = () => {
         const { value } = this.selectRef
         const count = store.getState()
         if (count % 2 == 0) return //为偶数时返回
-        store.dispatch({ type: 'increment4Odd', data: value })
+        store.dispatch(createIncrement4OddAction(value))
     }
     incrementAsync = () => {
         const { value } = this.selectRef
         setTimeout(() => {
-            store.dispatch({ type: 'incrementAsync', data: value })
+            store.dispatch(createIncrementAsyncAction(value))
         }, 500);
     }
-    /* componentDidMount(){
-        // 监测redux中状态的变化，只要变化，就调用render
-        store.subscribe((a)=>{
-          // 注意：需执行此句代码重新渲染render，否则store更新的数据无法渲染到页面
-          this.setState({})  //console.log('subscribe....',a);
-        })
-    } */
+    
     render() {
         console.log('render.....');
         const { count } = this.state
