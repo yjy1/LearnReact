@@ -1,6 +1,11 @@
+//  引入Count的UI组件
+// import CountUI from '../../components/Count'
+import { createIncrementAction,createDecrementAction,createIncrementAsyncAction } from '../../redux/count_action';
+// 引入connect，用于连接UI组件与redux
+import { connect } from 'react-redux'
 import React, { Component } from 'react'
- 
-export default class Count extends Component {
+
+class CountUI extends Component {
     state = { carName:'奔驰c63' }
    
     increment = () => {
@@ -43,3 +48,14 @@ export default class Count extends Component {
         )
     }
 }
+
+
+export default connect(
+    state => ({ count: state }),
+    {
+        increment: createIncrementAction,
+        decrement: createDecrementAction,
+        incrementAsync: createIncrementAsyncAction
+    }
+)(CountUI)
+

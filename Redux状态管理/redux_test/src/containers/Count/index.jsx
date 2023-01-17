@@ -1,16 +1,24 @@
-//  引入Count的UI组件
-import CountUI from '../../components/Count'
-import { createIncrementAction,createDecrementAction,createIncrementAsyncAction } from '../../redux/count_action';
- 
-// 引入connect，用于连接UI组件与redux
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
- 
-export default connect(
-    state => ({ count: state }),
-    {
-        increment: createIncrementAction,
-        decrement: createDecrementAction,
-        incrementAsync: createIncrementAsyncAction
+import {createIncrementAction} from '../../redux/count_action'
+class Count extends Component {
+    add = () => {
+        console.log(this.props);
+        this.props.add(1 )
     }
-)(CountUI)
+    render() {
+        return (
+            <div>
+                <h2>当前求和为：{this.props.he}</h2>
+                <button onClick={this.add}>点我加一</button>
+            </div>
+        )
+    }
+}
 
+export default connect(
+    state => ({ he: state }),
+    {
+        add: createIncrementAction
+    }
+)(Count)
