@@ -26,11 +26,12 @@ class CountUI extends Component {
     }
     
     render() {
-        const {count} = this.props
-       
+        const {count,personCount} = this.props
+        console.log('我是Count组件',this.props);
         return (
             <div>
                 <h2>我是Count组件</h2>
+                <h2>当前Person组件人数为:{ personCount }</h2>
                 <h4>当前求和为:{ count }</h4>
                 <select ref={c => this.selectRef = c}>
                     <option value="1">1</option>
@@ -49,7 +50,10 @@ class CountUI extends Component {
 
 
 export default connect(
-    state => ({ count: state }),
+    state => ({ 
+        count: state.countReducer,
+        personCount:state.personReducer.length 
+    }),
     {
         increment: createIncrementAction,
         decrement: createDecrementAction,
