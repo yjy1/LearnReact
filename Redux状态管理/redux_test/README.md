@@ -71,3 +71,8 @@
     (1).yarn add redux-devtools-extension
     (2).store中进行配置
         import {composewithDevTools} from 'redux-devtools-extensionconst store = createStore    (allReducer,composewithDevTools(applyMiddleware(thunk)))
+
+
+## 8.求和案例 react-redux最终版
+    (1).所有变量名字要规范，尽最触发对象的简写形式。
+    (2).reducers文件夹中，编写index.js专门用于汇总并暴露所有的reducer
