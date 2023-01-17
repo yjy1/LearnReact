@@ -23,9 +23,9 @@ export default class Count extends Component {
     }
     incrementAsync = () => {
         const { value } = this.selectRef
-        // setTimeout(() => {
-            store.dispatch(createIncrementAsyncAction(value,500))
-        // }, 500);
+        setTimeout(() => {
+            store.dispatch(createIncrementAsyncAction(value))
+        }, 500);
     }
     
     render() {
