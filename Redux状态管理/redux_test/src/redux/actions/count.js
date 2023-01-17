@@ -4,7 +4,7 @@
 /* 
     同步action，就是指action的值为object类型的一般对象
 */
-import {INCREMENT,DECREMENT,INCREMENT4ODD,INCREMENTASYNC} from './constant'
+import {INCREMENT,DECREMENT } from '../constant'
 
 export function createIncrementAction(data){
     return { type: INCREMENT, data }
@@ -12,9 +12,7 @@ export function createIncrementAction(data){
 export function createDecrementAction(data){
     return {type: DECREMENT,data }
 }
-export function createIncrement4OddAction(data){
-    return {type:INCREMENT4ODD,data }
-}
+ 
 /* 
     异步的action，就是指action的值为函数,异步action中一般会调用同步action
     PS:异步action不是必须要用的
