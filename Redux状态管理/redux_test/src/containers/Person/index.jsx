@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import { createAddPersonAction } from '../../redux/actions/person'
+import { nanoid } from 'nanoid'
 export class Person extends Component {
     addPerson = () => {
         const name = this.nameNode.value 
         const age = this.ageNode.value 
-        console.log(name,age );
-
+        const personObj = { id: nanoid(), name, age }
+        console.log(this);
+        this.props.addPerson(personObj)
     }
     render() {
         return (
@@ -25,8 +27,8 @@ export class Person extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = (state) => ({ persons: state })
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = { addPerson: createAddPersonAction }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Person)

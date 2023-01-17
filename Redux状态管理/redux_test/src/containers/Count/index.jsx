@@ -27,7 +27,7 @@ class CountUI extends Component {
     
     render() {
         const {count} = this.props
-        console.log(this.props);
+       
         return (
             <div>
                 <h2>我是Count组件</h2>
