@@ -1,31 +1,33 @@
 import React, { Component } from 'react'
  
- 
 export default class Count extends Component {
     state = { carName:'奔驰c63' }
+   
     increment = () => {
         const { value } = this.selectRef
-        
+        this.props.increment(value)
     }
     decrement = () => {
         const { value } = this.selectRef
+        this.props.decrement(value)
     }
     increment4Odd = () => {
         const { value } = this.selectRef
         
-        // if (count % 2 == 0) return //为偶数时返回
-     
+        if (this.props.count % 2 == 0) return //为偶数时返回
+        this.props.increment(value)
     }
     incrementAsync = () => {
         const { value } = this.selectRef
-        
+        this.props.incrementAsync(value,500)
     }
     
     render() {
-        
+        const {count} = this.props
+        console.log(this.props);
         return (
             <div>
-                <h2>当前求和为:{  }</h2>
+                <h2>当前求和为:{ count }</h2>
                 <select ref={c => this.selectRef = c}>
                     <option value="1">1</option>
                     <option value="2">2</option>
