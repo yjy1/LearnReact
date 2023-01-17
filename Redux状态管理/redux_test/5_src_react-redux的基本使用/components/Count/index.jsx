@@ -5,7 +5,6 @@ export default class Count extends Component {
    
     increment = () => {
         const { value } = this.selectRef
-        console.log(this.props);
         this.props.increment(value)
     }
     decrement = () => {
