@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Demo from './components/1_setState写法'
+import Demo from './components/2_lazyLoad'
 export default class App extends Component {
   render() {
     return (
@@ -9,3 +9,4 @@ export default class App extends Component {
     )
   }
 }
+ 
