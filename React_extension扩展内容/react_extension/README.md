@@ -52,3 +52,23 @@
             注意:
                 只是进行state和props数据的浅比较，如果只是数据对象内部数据变了，返回false不要直接   修改state数据，而是要产生新数据
         项目中一般使用PureComponent来优化
+
+
+
+## 7. render props
+    如何向组件内部动态传入带内容的结构(标签)?
+        Vue中:
+            使用s1ot技术，也就是通过组件标签体传入结构 <A><B/></A>
+        React中:
+            使用children props: 通过组件标签体传入结构
+            使用render props: 通过组件标签属性传入结构，而且可以传入数据，一般用render函数属性
+    children props
+        <A>
+           <B> XXXX</B>
+        </A>
+        {this.props.children}
+        问题: 如果B组件需要A组件内的数据，==> 做不到
+    render props
+        <A render=f(data) => <C data=fdatal></C=></A
+        A组件: {this.props.render(内state数据)了
+        C组件:读取A组件传入的数据显示 this.props.data]

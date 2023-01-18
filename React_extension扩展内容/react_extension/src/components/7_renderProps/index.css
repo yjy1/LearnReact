@@ -1,0 +1,18 @@
+.parent{
+    width: 400px;
+    background:crimson ;
+    border: 1px solid crimson;
+    padding: 10px;
+}
+.child{
+    width: 300px;
+    background:green ;
+    border: 1px solid green;
+    padding: 10px;
+}
+.grandchild{
+    width: 200px;
+    height: 200px;
+    background:skyblue ;
+    border: 1px solid skyblue;
+}
