@@ -72,3 +72,25 @@
         <A render=f(data) => <C data=fdatal></C=></A
         A组件: {this.props.render(内state数据)了
         C组件:读取A组件传入的数据显示 this.props.data]
+
+
+## 8.错误边界
+    理解:
+        错误边界(Error boundary): 用来捕获后代组件错误，渲染出备用页面
+    特点:
+        只能捕获后代组件生命周期产生的错误，不能捕获自己组件产生的错误和其他组件在合成事件、定时器中产生的错误
+    使用方式:
+        getDerivedStateFromError西合componentDidCatch
+        // 生命周期函数，一旦后台组件报错，就会触发
+        static getDerivedStateFromError (error){
+            console.Tog(error):
+            // 在render之前触发
+            // 返回新的state
+            return {
+                hasError: true 
+            }
+        }
+        componentDidCatch(error , info){
+            // 统计页面的错误。发送请求发送到后台去
+            console.log(error , info) 
+        }
