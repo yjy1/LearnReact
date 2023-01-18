@@ -14,3 +14,21 @@
             (2).如果新状态依赖于原状态 ===使用函数方式
             (3).如果需要在setstate0执行后获取最新的状本数据
             要在第二个ca11back函数中读取
+
+
+## 4. Effect Hook
+    (1).Effect Hook 可以让你在函数组件中执行副作用操作(用于模拟类组件中的生命周期钓子)
+    (2).React中的副作用操作:
+        发ajax请求数据获取设置订阅 /启动定时器
+        手动更改真实DOM
+    (3).语法和说明:
+        useEffect(() => {
+            //在此可以执行任何带副作用操作
+            return () => // 在组件卸载前执行
+              //在此做一些收尾工作，比如清除定时器/取消订阅等
+            }
+        }，[stateValue]) // 如果指定的是[]，回调函数只会在第一次render ()后执行
+    (4).可以把 useEffect Hook 看做如下三个函数的组合
+        componentDidMount()
+        componentDidUpdate()
+        componentWillUnmount()
